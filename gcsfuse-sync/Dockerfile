@@ -10,6 +10,7 @@ WORKDIR /gcsfuse
 
 ENV FUSE_MOUNT_DIR=/content
 ENV FUSE_BUCKET_NAME=fuse-test-bucket
+ENV SUBDIRECTORY_STRUCTURE=
 
 RUN export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s` && echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | tee /etc/apt/sources.list.d/gcsfuse.list
 
