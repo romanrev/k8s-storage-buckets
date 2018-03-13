@@ -6,7 +6,7 @@ if [ -n "$SUBDIRECTORY_STRUCTURE" ]; then
         gs_mount_msg="'gs://$FUSE_BUCKET_NAME/$dir' under '$FUSE_MOUNT_DIR/$dir'"
         local_mount="${FUSE_MOUNT_DIR}/${dir}"
         mkdir -p "$local_mount" && echo "Created '$local_mount' subdirectory" || echo "Failed to create '$local_mount'"
-        gcsfuse -o allow_other $FUSE_BUCKET_NAME --only-dir $dir $local_mount && echo "Mounted $gs_mount_msg" || echo "Failed to mount $gs_mount_msg"
+        gcsfuse -o allow_other --only-dir $dir $FUSE_BUCKET_NAME $local_mount && echo "Mounted $gs_mount_msg" || echo "Failed to mount $gs_mount_msg"
     done
 else
     local_mount="${FUSE_MOUNT_DIR}"
